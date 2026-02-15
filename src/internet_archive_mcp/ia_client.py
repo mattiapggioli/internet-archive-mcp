@@ -25,7 +25,15 @@ def search_images(
     query: str,
     max_results: int = DEFAULT_MAX_RESULTS,
 ) -> list[ImageResult]:
-    """Search the Internet Archive for images matching *query*."""
+    """Search the Internet Archive for images matching a query.
+
+    Args:
+        query: The search query string.
+        max_results: Maximum number of results to return.
+
+    Returns:
+        A list of ImageResult dictionaries containing metadata and URLs.
+    """
     results = internetarchive.search_items(
         f"{query} AND mediatype:image",
         fields=DEFAULT_FIELDS,

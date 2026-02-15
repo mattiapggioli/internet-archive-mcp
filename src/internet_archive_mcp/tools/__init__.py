@@ -6,5 +6,9 @@ from internet_archive_mcp.tools.search_images import (
 
 
 def register_tools(mcp: FastMCP) -> None:
-    """Wire up all tool modules."""
+    """Wire up all tool modules.
+
+    Args:
+        mcp: The FastMCP server instance.
+    """
     register_search_images(mcp)
