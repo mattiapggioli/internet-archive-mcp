@@ -60,15 +60,5 @@ CURATED_COLLECTIONS = [
         "identifier": "library_of_congress",
         "title": "Library of Congress",
         "description": ("Historical prints, photographs, maps, posters"),
-    },
-    {
-        "identifier": "wellcomecollection",
-        "title": "Wellcome Collection",
-        "description": ("Medical and scientific historical imagery"),
-    },
-    {
-        "identifier": "internetarchivebooks",
-        "title": "Internet Archive Books",
-        "description": ("Scanned book illustrations and plates"),
-    },
+    }
 ]
