@@ -1,7 +1,9 @@
 import json
+from typing import Any, cast
 from unittest.mock import patch
 
 import pytest
+from mcp.types import TextContent
 
 from internet_archive_mcp.server import mcp
 
@@ -40,11 +42,12 @@ async def test_search_images_tool_returns_json(mock_search):
         },
     ]
 
-    content, _ = await mcp.call_tool(
+    result = await mcp.call_tool(
         "search_images_tool",
         {"query": "test"},
     )
-    text = content[0].text
+    content_list = cast(tuple[list[Any], Any], result)[0]
+    text = cast(TextContent, content_list[0]).text
     data = json.loads(text)
     assert isinstance(data, list)
     assert data[0]["identifier"] == "tool_img"
