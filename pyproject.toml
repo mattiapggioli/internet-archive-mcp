@@ -1,0 +1,28 @@
+[project]
+name = "internet-archive-mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "mattiapggioli", email = "poggioli.mat@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "internetarchive>=5.7.2",
+    "mcp>=1.26.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.29,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.workspace]
+members = [
+    "internet-archive-mcp",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.15.1",
+]
