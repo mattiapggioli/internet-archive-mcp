@@ -24,5 +24,18 @@ members = [
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
+    "pytest-anyio>=0.0.0",
     "ruff>=0.15.1",
+]
+
+[tool.ruff]
+line-length = 79
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: hits the real Internet Archive API",
 ]

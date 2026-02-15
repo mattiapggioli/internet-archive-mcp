@@ -1,5 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 
+from internet_archive_mcp.tools import register_tools
+
 mcp = FastMCP("internet-archive-mcp")
 
 
@@ -7,3 +9,6 @@ mcp = FastMCP("internet-archive-mcp")
 def ping() -> str:
     """Return pong."""
     return "pong"
+
+
+register_tools(mcp)
