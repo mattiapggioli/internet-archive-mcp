@@ -17,15 +17,22 @@ def register_search_images(mcp: FastMCP) -> None:
     def search_images_tool(
         query: str,
         max_results: int = DEFAULT_MAX_RESULTS,
+        collection: str | None = None,
     ) -> str:
         """Search the Internet Archive for images.
 
         Args:
             query: Keywords to search for in the archive.
-            max_results: Maximum number of results to return.
+            max_results: Maximum number of results.
+            collection: Optional collection identifier
+                to restrict the search to.
 
         Returns:
-            A JSON string containing a list of image results with metadata and URLs.
+            A JSON string with image results.
         """
-        results = search_images(query, max_results=max_results)
+        results = search_images(
+            query,
+            max_results=max_results,
+            collection=collection,
+        )
         return json.dumps(results)

@@ -63,3 +63,19 @@ def test_search_images_handles_missing_fields(mock_search):
     results = search_images("sparse")
     assert results[0]["title"] == ""
     assert results[0]["creator"] == ""
+
+
+@patch("internet_archive_mcp.ia_client.internetarchive.search_items")
+def test_search_images_with_collection(mock_search):
+    mock_search.return_value = iter([])
+    search_images("stars", collection="nasa")
+    query = mock_search.call_args[0][0]
+    assert query == "stars AND mediatype:image AND collection:nasa"
+
+
+@patch("internet_archive_mcp.ia_client.internetarchive.search_items")
+def test_search_images_without_collection(mock_search):
+    mock_search.return_value = iter([])
+    search_images("stars")
+    query = mock_search.call_args[0][0]
+    assert "collection:" not in query

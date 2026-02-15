@@ -62,4 +62,21 @@ async def test_search_images_tool_passes_max_results(
         "search_images_tool",
         {"query": "cats", "max_results": 5},
     )
-    mock_search.assert_called_once_with("cats", max_results=5)
+    mock_search.assert_called_once_with("cats", max_results=5, collection=None)
+
+
+@pytest.mark.anyio
+@patch(
+    "internet_archive_mcp.tools.search_images.search_images",
+)
+async def test_search_images_tool_passes_collection(
+    mock_search,
+):
+    mock_search.return_value = []
+    await mcp.call_tool(
+        "search_images_tool",
+        {"query": "moon", "collection": "nasa"},
+    )
+    mock_search.assert_called_once_with(
+        "moon", max_results=10, collection="nasa"
+    )

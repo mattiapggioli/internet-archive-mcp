@@ -1,5 +1,8 @@
 from mcp.server.fastmcp import FastMCP
 
+from internet_archive_mcp.tools.collections import (
+    register_collections,
+)
 from internet_archive_mcp.tools.search_images import (
     register_search_images,
 )
@@ -12,3 +15,4 @@ def register_tools(mcp: FastMCP) -> None:
         mcp: The FastMCP server instance.
     """
     register_search_images(mcp)
+    register_collections(mcp)
