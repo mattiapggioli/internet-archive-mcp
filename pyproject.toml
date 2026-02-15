@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "mattiapggioli", email = "poggioli.mat@gmail.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "internetarchive>=5.7.2",
     "mcp>=1.26.0",
